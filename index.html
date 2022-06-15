@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+  <link href="styles.css" rel="stylesheet"/>
+  <script src="script.js" defer></script>
+  <title>Alex's To-Do List</title>
+</head>
+<body>
+  <!-- header -->
+  <div class="header">
+    <h1 class="header-title">
+      Alex's To Do List
+    </h1>
+  </div>
+  
+  <!-- body -->
+  <div class="grid-container">
+    <!-- all lists -->
+    <h2 class="todo-lists-title">My To-Do Lists</h2>
+    <div class="todo-lists-container">
+      <div class="lists-container grid-horizontal">
+        <ul class="todo-lists flex-horizontal" data-lists>
+        </ul>
+        <form action ="" class="flex-horizontal" data-new-list-form>
+          <input type="text" 
+            class="text-input new-list"
+            placeholder="new list name"
+            data-new-list-input/>
+          <button class="btn-transparent create-btn">+</button>
+        </form>
+      </div>  
+    </div>
+    
+    <!-- active todo list -->
+    <div class="todo-list" data-list-display-container>
+      <!-- todo top-section -->
+      <div class="todo-top-section">
+        <!-- todo-header -->
+        <div class="todo-header">
+          <h2 class="todo-title" data-list-title>List 1</h2>
+          <p class="task-count" data-list-count>3 tasks remaining</p>
+        </div>
+        <!-- filter-sort bar -->
+        <div class="filter-sort-bar grid-horizontal">
+          <div class="filter-sort-block flex-horizontal">
+            <p>Sort By:</p>
+            <button class="sort-by-name btn-transparent" data-sort-by-name-button>Name</button>
+            <button class="sort-by-deadline btn-transparent" data-sort-by-deadline-button>Deadline</button>
+          </div>
+          <div class="filter-sort-block flex-horizontal">
+            <p>Filter Date:</p>
+            <form action ="" data-filter-date-form>
+              <input type="date" 
+                class="date-input filter-date-input" data-filter-date-input/>
+                <button class="filter-date-submit btn-transparent">Filter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- todo-body -->
+      <div class="todo-body">
+        <!-- tasks -->
+        <div class="tasks" data-tasks></div>
+        <div class="new-task-creator">
+          <form action="" class="flex-horizontal" data-new-task-form>
+            <input 
+              type="text" 
+              class="text-input new-task" 
+              placeholder="new task name"
+              data-new-task-input required/>
+            <div class="deadline-input-container">
+              Deadline:
+              <input
+              type="date"
+              class="date-input task-date" data-new-task-deadline required/>
+            </div>
+            
+            <button class="btn-transparent create-btn">+</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- todo footer -->
+      <div class="todo-footer flex-horizontal">
+        <button class="btn-transparent delete-btn" data-delete-list-button>
+          Delete List
+        </button>
+        <button class="btn-transparent hide-completed-btn" data-hide-complete-button>
+          Show/Hide Completed Tasks
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- templates -->
+  <template id="task-template">
+    <div class="task-container flex-horizontal">
+      <div class="task">
+        <input 
+          type="checkbox"
+        />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+      <div class="deadline">
+      </div>
+    </div>
+  </template>
+
+</body>
+</html>
